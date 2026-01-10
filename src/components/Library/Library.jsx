@@ -82,6 +82,7 @@ const Library = () => {
                     setRegion={setRegion}
                     keyword={keyword}
                     setKeyword={setKeyword}
+                    debouncedKeyword={debouncedKeyword}
                     regions={regions}
                 />
 

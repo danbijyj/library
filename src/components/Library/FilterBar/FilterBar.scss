@@ -9,7 +9,7 @@
         padding: 50px;
         font-size: 18px;
         display: flex;
-        justify-content: space-between;
+        gap: 20px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         .select-box {
             position: relative;
@@ -32,27 +32,36 @@
             }
         }
         .search-input {
-            display: inline-block;
+            display: flex;
+            gap: 20px;
             position: relative;
             input {
-                width: 850px;
+                width: 700px;
                 height: 50px;
-                padding: 0px 20px;
+                padding: 0px 20px 0 50px;
                 border-radius: 12px;
                 background-color: $bg-input;
                 color: #fff;
             }
-            .search-btn {
+            .search-icon {
                 position: absolute;
-                font-size: 24px;
-                right: 20px;
+                left: 20px;
                 top: 50%;
                 transform: translateY(-50%);
-                background: none;
+                font-size: 20px;
+                opacity: 0.2;
+            }
+            .reset-btn {
+                width: 130px;
+                height: 50px;
+                border-radius: 12px;
+                background-color: $dark-green;
                 border: none;
                 color: #fff;
-                pointer-events: none;
-                opacity: 0.3;
+                transition: 0.2s;
+                &:hover {
+                    background-color: $btn;
+                }
             }
         }
     }
