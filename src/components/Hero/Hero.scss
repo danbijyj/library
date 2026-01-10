@@ -1,0 +1,41 @@
+@use '../../styles/index.scss' as *;
+
+.hero {
+    padding: 50px 0;
+    .inner {
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        padding: 100px 0;
+        text-align: center;
+        img {
+            margin: 0 auto;
+        }
+        h2 {
+            margin-top: 12px;
+            font-size: 64px;
+            font-weight: 800;
+            @include flex-center-left;
+            gap: 20px;
+            img {
+                height: 45px;
+            }
+        }
+        .line {
+            width: 380px;
+            height: 1px;
+            background-color: $line1;
+            margin: 20px auto 40px;
+        }
+        h3 {
+            color: $text-subtitle;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        p {
+            font-size: 18px;
+        }
+    }
+}

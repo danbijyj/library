@@ -1,0 +1,59 @@
+@use '../../../styles/index.scss' as *;
+
+.filter-bar {
+    padding-bottom: 50px;
+    border-bottom: 1px solid $line2;
+    .inner {
+        border-radius: 28px;
+        background: $bg-search;
+        padding: 50px;
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        .select-box {
+            position: relative;
+            display: inline-block;
+            select {
+                width: 230px;
+                height: 50px;
+                border-radius: 12px;
+                background-color: $bg-input;
+                color: #fff;
+                padding: 0px 20px;
+                appearance: none;
+            }
+            .arrow {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                pointer-events: none;
+            }
+        }
+        .search-input {
+            display: inline-block;
+            position: relative;
+            input {
+                width: 850px;
+                height: 50px;
+                padding: 0px 20px;
+                border-radius: 12px;
+                background-color: $bg-input;
+                color: #fff;
+            }
+            .search-btn {
+                position: absolute;
+                font-size: 24px;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+                border: none;
+                color: #fff;
+                pointer-events: none;
+                opacity: 0.3;
+            }
+        }
+    }
+}

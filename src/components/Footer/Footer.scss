@@ -1,0 +1,7 @@
+@use '../../styles/index.scss' as *;
+
+.footer {
+    border-top: 1px solid $line2;
+    color: $line2;
+    padding: 60px 0;
+}
