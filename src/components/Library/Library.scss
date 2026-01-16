@@ -14,8 +14,8 @@
             }
         }
         .library-list {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 50px;
             margin-bottom: 50px;
             .library-card {
@@ -52,7 +52,7 @@
                     justify-content: space-between;
                     .go {
                         color: #fff;
-                        width: 225px;
+                        width: 48%;
                         height: 45px;
                         border-radius: 8px;
                         border: 1px solid $btn;
@@ -79,6 +79,36 @@
             &:hover {
                 color: $green;
                 border: 1px solid $btn;
+            }
+        }
+    }
+    @media (max-width: $tablet) {
+        margin-bottom: 80px;
+        .inner {
+            .result {
+                margin: 24px 0 12px;
+                span {
+                    font-size: 24px;
+                }
+            }
+            .library-list {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                .library-card {
+                    width: 100%;
+                    padding: 30px;
+                    h3 {
+                        padding-bottom: 12px;
+                    }
+                    .library-info {
+                        padding: 20px 0;
+                    }
+                    .library-btn {
+                        .go {
+                            // width: 50%;
+                        }
+                    }
+                }
             }
         }
     }

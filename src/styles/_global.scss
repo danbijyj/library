@@ -11,7 +11,13 @@ body {
         $bg-main url('/images/bg.png') no-repeat top center;
     background-size: contain;
     .inner {
-        width: 1200px;
+        max-width: 1200px;
         margin: 0 auto;
+        @media (max-width: $tablet) {
+            padding: 0 16px;
+        }
+        @media (max-width: $mobile) {
+            padding: 0 14px;
+        }
     }
 }

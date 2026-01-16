@@ -65,4 +65,43 @@
             }
         }
     }
+    @media (max-width: $tablet) {
+        .inner {
+            padding: 30px;
+            font-size: 16px;
+            flex-direction: column;
+            gap: 16px;
+            .select-box {
+                select {
+                    width: 100%;
+                }
+            }
+            .search-input {
+                gap: 12px;
+                input {
+                    width: 70%;
+                }
+                .reset-btn {
+                    width: 30%;
+                }
+            }
+        }
+    }
+    @media (max-width: $mobile) {
+        .inner {
+            padding: 24px;
+            .search-input {
+                flex-direction: column;
+                input {
+                    width: 100%;
+                }
+                .search-icon {
+                    top: 25px;
+                }
+                .reset-btn {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }

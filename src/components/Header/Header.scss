@@ -27,4 +27,15 @@
             }
         }
     }
+    @media (max-width: $mobile) {
+        .inner {
+            height: 56px;
+            h1 {
+                font-size: 20px;
+                &::after {
+                    bottom: -12px;
+                }
+            }
+        }
+    }
 }

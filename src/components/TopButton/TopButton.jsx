@@ -7,7 +7,8 @@ const TopButton = () => {
 
     useEffect(() => {
         const onScroll = () => {
-            setShow(window.scrollY > 300);
+            const trigger = window.innerWidth <= 820 ? 150 : 300;
+            setShow(window.scrollY > trigger);
         };
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
