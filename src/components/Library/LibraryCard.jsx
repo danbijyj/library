@@ -3,13 +3,14 @@ import { IoLocationSharp, IoHomeSharp, IoBook } from 'react-icons/io5';
 
 const LibraryCard = ({ name, address, phone, closed, homepage }) => {
     const naverMapUrl = `https://map.naver.com/v5/search/${encodeURIComponent(
-        address
+        address,
     )}`;
 
     return (
         <article className="library-card">
             <h3>
-                <IoBook /> {name}
+                <IoBook className="icon" />
+                <span className="title">{name}</span>
             </h3>
             <div className="library-info">
                 <p>
