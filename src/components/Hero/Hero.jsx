@@ -51,6 +51,15 @@ const Hero = () => {
                         duration: 0.5,
                     },
                     '-=0.2',
+                )
+                .from(
+                    '.scroll-indicator',
+                    {
+                        y: 20,
+                        opacity: 0,
+                        duration: 0.5,
+                    },
+                    '-=0.2',
                 );
 
             gsap.set('.hero-icon', {

@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useLayoutEffect } from 'react';
+import gsap from 'gsap';
 import './Library.scss';
 import { IoAdd } from 'react-icons/io5';
 import LibraryList from './LibraryList';
@@ -16,6 +17,21 @@ const Library = () => {
     const [debouncedKeyword, setDebouncedKeyword] = useState('');
 
     const [visibleCount, setVisibleCount] = useState(pageSize);
+
+    const sectionRef = useRef(null);
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.from(sectionRef.current, {
+                y: 80,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out',
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -63,7 +79,7 @@ const Library = () => {
 
     const sortedLibraries = isFiltered
         ? [...filteredLibraries].sort((a, b) =>
-              a.LIBRRY_NM.localeCompare(b.LIBRRY_NM, 'ko-KR')
+              a.LIBRRY_NM.localeCompare(b.LIBRRY_NM, 'ko-KR'),
           )
         : filteredLibraries;
 
@@ -75,7 +91,7 @@ const Library = () => {
     ].sort((a, b) => a.localeCompare(b, 'ko-KR'));
 
     return (
-        <section className="library">
+        <section ref={sectionRef} className="library">
             <div className="inner">
                 <FilterBar
                     region={region}
