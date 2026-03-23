@@ -19,19 +19,7 @@ const Library = () => {
     const [visibleCount, setVisibleCount] = useState(pageSize);
 
     const sectionRef = useRef(null);
-
-    useLayoutEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.from(sectionRef.current, {
-                y: 80,
-                opacity: 0,
-                duration: 1,
-                ease: 'power3.out',
-            });
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
+    const prevCountRef = useRef(0);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -42,6 +30,7 @@ const Library = () => {
 
     useEffect(() => {
         setVisibleCount(pageSize);
+        prevCountRef.current = 0;
     }, [region, debouncedKeyword]);
 
     useEffect(() => {
@@ -89,6 +78,47 @@ const Library = () => {
     const regions = [
         ...new Set(libraries.map((item) => item.SIGUN_NM).filter(Boolean)),
     ].sort((a, b) => a.localeCompare(b, 'ko-KR'));
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.from(sectionRef.current, {
+                y: 60,
+                opacity: 0,
+                duration: 0.6,
+                ease: 'power3.out',
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
+    useLayoutEffect(() => {
+        if (loading) return;
+
+        const ctx = gsap.context(() => {
+            const cards = gsap.utils.toArray('.library-card');
+            const prevCount = prevCountRef.current;
+            const newCards = cards.slice(prevCount);
+
+            if (newCards.length === 0) return;
+
+            gsap.fromTo(
+                newCards,
+                { y: 40, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    stagger: 0.08,
+                    duration: 0.5,
+                    ease: 'power3.out',
+                    clearProps: 'transform',
+                },
+            );
+            prevCountRef.current = cards.length;
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, [loading, displayedLibraries]);
 
     return (
         <section ref={sectionRef} className="library">

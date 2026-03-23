@@ -34,7 +34,7 @@ const LibraryCard = ({ name, address, phone, closed, homepage }) => {
                     rel="noopener noreferrer"
                     className="go"
                 >
-                    <IoHomeSharp />
+                    <IoHomeSharp className="icon" />
                     홈페이지
                 </a>
                 <a
@@ -43,7 +43,7 @@ const LibraryCard = ({ name, address, phone, closed, homepage }) => {
                     rel="noopener noreferrer"
                     className="go"
                 >
-                    <IoLocationSharp />
+                    <IoLocationSharp className="icon" />
                     네이버 지도
                 </a>
             </div>
