@@ -148,20 +148,11 @@
             }
             .library-list {
                 grid-template-columns: 1fr;
-                gap: 30px;
                 .library-card {
                     width: 100%;
-                    padding: 30px;
+                    padding: 24px;
                     h3 {
                         padding-bottom: 12px;
-                    }
-                    .library-info {
-                        padding: 20px 0;
-                    }
-                    .library-btn {
-                        .go {
-                            // width: 50%;
-                        }
                     }
                 }
             }
